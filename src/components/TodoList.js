@@ -5,7 +5,7 @@ import { removeTodo } from '../store/todoSlice'
 import { selectTodos } from '../store/selectors'
 
 const TodoList = () => {
-    const { todos } = useSelector(selectTodos)
+    const todos  = useSelector(selectTodos)
     const dispatch = useDispatch()
 
     const removeTask = (id) => {
