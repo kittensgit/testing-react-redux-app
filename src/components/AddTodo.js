@@ -1,11 +1,20 @@
 import React, { useState } from 'react'
+import { useDispatch } from 'react-redux'
+import { addTodo } from '../redux/todoReducer'
 
 const AddTodo = () => {
+
+    const dispatch = useDispatch()
 
     const [value, setValue] = useState('')
 
     const handleChangeValue = (e) => {
         setValue(e.target.value)
+    }
+
+    const handleAddTask = () => {
+        dispatch(addTodo(value))
+        setValue('')
     }
 
     return (
@@ -16,7 +25,7 @@ const AddTodo = () => {
                 value={value}
                 onChange={handleChangeValue}
             />
-            <button>add</button>
+            <button onClick={handleAddTask}>add</button>
         </div>
     )
 }
