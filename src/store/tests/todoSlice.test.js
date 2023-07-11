@@ -15,11 +15,19 @@ describe('todoSlice', () => {
         expect(result[0].completed).toBe(false)
     })
     it('should toggle todo completed status with "toggleCompleted" action', () => {
-        const todos = [{id: 223, title: 'react', completed: false}]
-        const action = {type: toggleComplete.type, payload: 223}
+        const todos = [{ id: 223, title: 'react', completed: false }]
+        const action = { type: toggleComplete.type, payload: 223 }
 
         const result = todoReducer(todos, action)
 
         expect(result[0].completed).toBe(true)
+    })
+    it('should remove todo by id with "removeTodo" action', () => {
+        const todos = [{ id: 223, title: 'react', completed: false }]
+        const action = {type: removeTodo.type, payload: 223}
+
+        const result = todoReducer(todos, action);
+
+        expect(result).toEqual([])
     })
 })
